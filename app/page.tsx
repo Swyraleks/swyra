@@ -1,8 +1,18 @@
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import CallToAction from "./components/CallToAction";
+
 export default function Home() {
   return (
-    <main style={{ padding: 24, fontFamily: "sans-serif" }}>
-      <h1>Hallo, ich bin Swyra 🚀</h1>
-      <p>Dein Marktplatz für die Schweiz.</p>
+    <main>
+      {/* Hero */}
+      <Hero />
+
+      {/* Features */}
+      <Features />
+
+      {/* CTA-Bereich */}
+      <CallToAction />
     </main>
   );
 }

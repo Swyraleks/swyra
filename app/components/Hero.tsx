@@ -30,17 +30,20 @@ export default function Hero() {
       alignItems: "center",
       background: "white",
       borderRadius: "16px",
-      padding: "20px",
+      padding: "40px", // etwas mehr Abstand
       boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+      minHeight: "220px", // damit das Feld etwas größer bleibt
     }}
   >
-<Image
-  src="/logo-swyra.svg"
-  alt="Swyra Logo mit Text"
-  width={300}
-  height={120}
-/>
+    <Image
+      src="/logo-swyra.svg"
+      alt="Swyra Logo mit Text"
+      width={500}
+      height={160}
+      style={{ width: "100%", height: "auto", maxWidth: "420px" }}
+    />
   </div>
+</div>
 </div>
       </div>
     </section>

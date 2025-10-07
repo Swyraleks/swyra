@@ -11,10 +11,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: {
     default: "Swyra",
-    template: "%s – Swyra",
+    template: "%s | Swyra",
   },
   description:
-    "Sicher handeln, einfach zahlen. Twint/Banküberweisung/Krypto – schnell, fair & nutzerfreundlich.",
+    "Sicher handeln, einfach zahlen. TWINT/Banküberweisung/Krypto – schnell, fair & nutzerfreundlich.",
   icons: {
     icon: "/favicon.ico",
   },

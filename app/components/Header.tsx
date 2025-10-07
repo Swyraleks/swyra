@@ -18,8 +18,8 @@ export default function Header() {
         <Image
           src="/logo-swyra.svg"           // << HIER: korrekter Pfad zur SVG
           alt="Swyra Logo"
-          width={140}                     // kannst du anpassen
-          height={32}                     // kannst du anpassen
+          width={180}                     // kannst du anpassen
+          height={60}                     // kannst du anpassen
           priority
           style={{
             height: "32px",

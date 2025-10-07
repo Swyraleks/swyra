@@ -4,7 +4,6 @@ export default function Hero() {
     <section style={wrap}>
       <div className="container" style={inner}>
         <div style={left}>
-          <span style={badge}>Neu: Swyra für die Schweiz 🇨🇭</span>
 
           <h1 style={title}>
             Sicher handeln,<br />einfach zahlen.

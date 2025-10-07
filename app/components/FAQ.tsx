@@ -24,7 +24,7 @@ const faqs: QA[] = [
 ];
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section className="faq-wrap" aria-labelledby="faq-title">

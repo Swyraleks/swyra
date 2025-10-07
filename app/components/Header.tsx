@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,32 +10,27 @@ export default function Header() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px",
-        background: "#f0f4f8",
-        borderBottom: "1px solid #ddd",
+        padding: "12px 40px",
+        background: "#f9fafb",
+        borderBottom: "1px solid #e5e7eb",
       }}
     >
-      {/* Logo */}
-      <Link href="/" style={{ display: "inline-flex", alignItems: "center" }}>
+      {/* Nur das Logo ohne Text */}
+      <Link href="/">
         <Image
-          src="/logo-swyra.svg"           // << HIER: korrekter Pfad zur SVG
+          src="/logo.svg"
           alt="Swyra Logo"
-          width={180}                     // kannst du anpassen
-          height={60}                     // kannst du anpassen
+          width={160}  // etwas grösser gemacht
+          height={60}
           priority
-          style={{
-            height: "32px",
-            width: "auto",
-            objectFit: "contain",
-          }}
         />
       </Link>
 
       {/* Navigation */}
-      <nav>
-        <Link href="/" style={{ marginRight: "15px" }}>Home</Link>
-        <Link href="/about" style={{ marginRight: "15px" }}>Über uns</Link>
-        <Link href="/contact">Kontakt</Link>
+      <nav style={{ display: "flex", gap: "20px", fontSize: "15px" }}>
+        <Link href="/">Home</Link>
+        <Link href="/about">Über uns</Link>
+        <Link href="/kontakt">Kontakt</Link>
       </nav>
     </header>
   );

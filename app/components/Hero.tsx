@@ -1,4 +1,6 @@
 // app/components/Hero.tsx
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section style={wrap}>
@@ -20,15 +22,26 @@ export default function Hero() {
           </div>
         </div>
 
-        <div style={right}>
-          {/* Platzhalter Illustration */}
-          <div className="card shadow-sm" style={mock}>
-            <div style={line} />
-            <div style={lineThin} />
-            <div style={lineThin} />
-            <div style={lineThin} />
-          </div>
-        </div>
+<div style={right}>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "white",
+      borderRadius: "16px",
+      padding: "20px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+    }}
+  >
+<Image
+  src="/logo-swyra.svg"
+  alt="Swyra Logo mit Text"
+  width={300}
+  height={120}
+/>
+  </div>
+</div>
       </div>
     </section>
   );

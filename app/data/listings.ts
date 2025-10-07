@@ -1,58 +1,16 @@
 // app/data/listings.ts
-
-export type Product = {
-  id: string;
+export type Listing = {
+  id: number;
   title: string;
   price: number;
-  location: string;
-  image: string;
-  badge?: "Neu" | "Top" | "CH";
+  image: string; // Pfad relativ zu /public
 };
 
-export const LISTINGS: Product[] = [
-  {
-    id: "p1",
-    title: "City-Bike 7-Gang, gepflegt",
-    price: 220,
-    location: "Zürich",
-    image: "/items/bike.jpg",
-    badge: "Top",
-  },
-  {
-    id: "p2",
-    title: "iPhone 13, 128 GB",
-    price: 430,
-    location: "Bern",
-    image: "/items/iphone.jpg",
-    badge: "Neu",
-  },
-  {
-    id: "p3",
-    title: "Kinderwagen Buggy",
-    price: 90,
-    location: "Luzern",
-    image: "/items/stroller.jpg",
-  },
-  {
-    id: "p4",
-    title: "Snowboard Set (Bindung + Boots)",
-    price: 290,
-    location: "Chur",
-    image: "/items/snowboard.jpg",
-    badge: "CH",
-  },
-  {
-    id: "p5",
-    title: "Esstisch Eiche 160 cm",
-    price: 350,
-    location: "Basel",
-    image: "/items/table.jpg",
-  },
-  {
-    id: "p6",
-    title: "Nintendo Switch OLED",
-    price: 260,
-    location: "St. Gallen",
-    image: "/items/switch.jpg",
-  },
+export const listings: Listing[] = [
+  { id: 1, title: "Mountainbike",      price: 1200, image: "/items/bike.jpg" },
+  { id: 2, title: "iPhone 14",         price: 950,  image: "/items/iphone.jpg" },
+  { id: 3, title: "Kinderwagen",       price: 250,  image: "/items/stroller.jpg" },
+  { id: 4, title: "Snowboard",         price: 490,  image: "/items/snowboard.jpg" },
+  { id: 5, title: "Holztisch",         price: 350,  image: "/items/table.jpg" },
+  { id: 6, title: "Nintendo Switch",   price: 280,  image: "/items/switch.jpg" },
 ];

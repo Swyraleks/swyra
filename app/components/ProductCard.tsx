@@ -1,80 +1,59 @@
 // app/components/ProductCard.tsx
+"use client";
+
 import Image from "next/image";
 
-type Product = {
-  id: string;
+export default function ProductCard({
+  title,
+  price,
+  image,
+}: {
   title: string;
   price: number;
-  location: string;
-  image: string; // public path, e.g. "/items/bike.jpg"
-  badge?: "Neu" | "Top" | "CH";
-};
-
-export default function ProductCard({ product }: { product: Product }) {
+  image: string; // z.B. "/items/bike.jpg"
+}) {
   return (
     <article
       style={{
-        border: "1px solid var(--line)",
-        borderRadius: 16,
-        overflow: "hidden",
+        border: "1px solid #eee",
+        borderRadius: 12,
+        padding: 16,
         background: "#fff",
-        boxShadow: "0 6px 20px rgba(17,24,39,.05)",
-        transition: "transform .15s ease",
       }}
-      onMouseEnter={(e) => ((e.currentTarget.style.transform = "translateY(-2px)"))}
-      onMouseLeave={(e) => ((e.currentTarget.style.transform = "translateY(0)"))}
+      className="card-hover"
     >
-      <div style={{ position: "relative", width: "100%", aspectRatio: "4/3" }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: 180,
+          overflow: "hidden",
+          borderRadius: 12,
+          background: "#f6f7f9",
+        }}
+      >
         <Image
-          src={product.image}
-          alt={product.title}
+          src={image}
+          alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
           style={{ objectFit: "cover" }}
           priority={false}
         />
-        {product.badge && (
-          <span
-            style={{
-              position: "absolute",
-              left: 12,
-              top: 12,
-              padding: "6px 10px",
-              fontSize: 12,
-              borderRadius: 999,
-              background: "var(--brand-tint)",
-              color: "var(--brand-ink)",
-              border: "1px solid var(--brand-line)",
-            }}
-          >
-            {product.badge}
-          </span>
-        )}
       </div>
 
-      <div style={{ padding: 14 }}>
-        <h3 style={{ fontSize: 16, margin: "0 0 6px 0", color: "var(--ink)" }}>
-          {product.title}
-        </h3>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            color: "var(--muted)",
-            fontSize: 14,
-          }}
-        >
-          <span>{product.location}</span>
-          <strong style={{ color: "var(--ink)" }}>
-            {product.price.toLocaleString("de-CH", {
-              style: "currency",
-              currency: "CHF",
-              maximumFractionDigits: 0,
-            })}
-          </strong>
-        </div>
-      </div>
+      <h3 style={{ marginTop: 12, marginBottom: 6, fontWeight: 700 }}>{title}</h3>
+      <p style={{ color: "#2563eb", fontWeight: 700 }}>CHF {price}</p>
+
+      <style jsx>{`
+        .card-hover {
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+      `}</style>
     </article>
   );
 }

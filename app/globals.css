@@ -62,3 +62,103 @@ p{color:var(--muted); line-height:1.6}
 }
 
 .shadow-sm{ box-shadow: 0 6px 16px rgba(2, 28, 71, .08) }
+/* === Swyra FAQ Styles === */
+:root {
+  --brand: #0b6fbf;
+  --brand-600: #0a66b0;
+  --ink: #0b1220;
+  --muted: #475467;
+  --line: #e6e8eb;
+  --card: #ffffff;
+  --ring: rgba(11, 111, 191, 0.25);
+  --shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+
+.faq-wrap {
+  max-width: 1100px;
+  margin: 72px auto 0;
+  padding: 0 20px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  background: #e9f5ff;
+  color: var(--brand);
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.faq-title {
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+}
+
+.faq-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.faq-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-card:is(:hover, :focus-within) {
+  border-color: var(--brand);
+  box-shadow: 0 8px 24px rgba(11, 111, 191, 0.12);
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  padding: 16px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.faq-trigger:focus-visible {
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.faq-icon {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--brand);
+  transition: transform 0.2s ease;
+}
+
+.faq-card.is-open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-content {
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  border-top: 1px solid var(--line);
+}
+
+.faq-answer {
+  padding: 14px 18px 18px;
+  color: var(--muted);
+  margin: 0;
+}

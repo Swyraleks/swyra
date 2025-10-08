@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 200" role="img" aria-label="Swyra Inline Logo">
+  <!-- S-Icon (Navy) -->
+  <g transform="translate(0,0)">
+    <path fill="#0b2a45" d="
+      M160,78
+      c0,-28 -32,-48 -72,-48
+      c-40,0 -72,18 -72,45
+      c0,24 20,39 63,50
+      l33,9
+      c48,13 72,33 72,71
+      c0,50 -42,82 -97,82
+      c-37,0 -74,-14 -98,-35
+      l16,-32
+      c23,18 55,30 84,30
+      c36,0 62,-17 62,-42
+      c0,-22 -14,-33 -53,-44
+      l-36,-10
+      c-54,-14 -79,-37 -79,-75
+      c0,-53 48,-90 111,-90
+      c41,0 83,17 106,40
+      Z"></path>
+  </g>
+
+  <!-- Wortmarke rechts -->
+  <defs>
+    <style>
+      .word { fill:#0b2a45; font: 700 110px/1.05 Montserrat, Poppins, Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; letter-spacing: 0.02em; }
+    </style>
+  </defs>
+  <text class="word" x="220" y="128">Swyra</text>
+</svg>

@@ -9,14 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 // app/layout.tsx
 export const metadata = {
-  title: {
-    default: "Swyra",
-    template: "%s | Swyra",
-  },
-  description:
-    "Sicher handeln, einfach zahlen. TWINT/Banküberweisung/Krypto – schnell, fair & nutzerfreundlich.",
+  title: { default: "Swyra", template: "%s | Swyra" },
+  description: "Sicher handeln, einfach zahlen.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/swyra-icon.svg",
+    shortcut: "/swyra-icon.svg",
   },
 };
 

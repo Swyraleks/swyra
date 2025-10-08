@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 48" role="img" aria-label="powered by swyra">
+  <defs>
+    <style>
+      .t { fill:#0b2a45; font: 600 28px/1.2 Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; letter-spacing: 0.02em; }
+    </style>
+  </defs>
+  <text class="t" x="0" y="30">powered by swyra</text>
+</svg>

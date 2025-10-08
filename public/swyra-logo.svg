@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 180" role="img" aria-label="Swyra Wortmarke">
+  <defs>
+    <style>
+      .w { fill:#0b2a45; font: 700 120px/1.05 Montserrat, Poppins, Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; letter-spacing: 0.02em; }
+    </style>
+  </defs>
+  <text class="w" x="0" y="118">Swyra</text>
+</svg>

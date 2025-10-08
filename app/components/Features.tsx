@@ -18,7 +18,7 @@ const FEATURES: Feature[] = [
   {
     icon: '🇨🇭',
     title: 'Aus der Schweiz',
-    text: 'Lokal, vertrauenswürdig & kundenfreundlich. Ein Marktplatz von hier, für dich.',
+    text: 'Lokal, vertrauenswürdig & kundenfreundlich.',
   },
 ];
 

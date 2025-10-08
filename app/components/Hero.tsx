@@ -7,14 +7,9 @@ export default function Hero() {
       <div style={inner}>
         {/* Zentrale Karte mit Logo */}
         <div style={card}>
-          <Image
-            src="/logo-swyra.svg"        // falls du PNG/JPG nutzen willst: z.B. "/logo-swyra.png"
-            alt="Swyra Logo"
-            width={420}
-            height={160}
-            priority
-            style={{ width: "100%", height: "auto", maxWidth: 420 }}
-          />
+<div style={{ textAlign: "center", marginTop: 40 }}>
+  <h2>Finde jetzt dein nächstes Angebot</h2>
+</div>
           {/* Wenn du doch eine kleine Unterzeile möchtest, diese Zeile auskommentieren:
           <p style={tagline}>Sicher handeln, einfach zahlen.</p>
           */}

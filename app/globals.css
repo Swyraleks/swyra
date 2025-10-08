@@ -1,381 +1,201 @@
-/* app/globals.css */
+/* ================================
+   Global Styles for Swyra
+   ================================ */
 
-/* ===== Farb- und Design-Variablen ===== */
+/* ---------- CSS-Variablen ---------- */
 :root{
-  --brand: #0070f3;
-  --brand-900: #0054b3;
-  --text: #0b1320;
-  --muted: #6b7280;
-  --bg: #f7fafe;
-  --card: #ffffff;
+  --bg: #ffffff;
+  --bg-soft: #f7f8fb;
+  --surface: #ffffff;
+  --text: #0d2233;
+  --muted: #5b6b7b;
+  --primary: #0b60ff;
+  --primary-600: #0a56e6;
+  --primary-700: #094bcc;
+  --ring: rgba(11,96,255,0.35);
   --border: #e5e7eb;
-  --shadow: 0 8px 24px rgba(2, 28, 71, 0.12);
+  --shadow: 0 8px 30px rgba(17, 24, 39, 0.06);
 }
 
-*{box-sizing:border-box}
-html,body{padding:0;margin:0}
-body{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  color: var(--text);
-  background:
-    radial-gradient(1200px 600px at 70% 0%, #eaf3ff 0%, rgba(234,243,255,0) 55%),
-    linear-gradient(#fff, #fff);
-}
-
-/* ===== Layout Helpers ===== */
-.container{
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ===== Typo ===== */
-h1{font-weight:800; letter-spacing:-.02em}
-p{color:var(--muted); line-height:1.6}
-
-/* ===== Buttons ===== */
-.btn{
-  display:inline-flex; align-items:center; gap:.5rem;
-  height:44px; padding:0 18px; border-radius:10px;
-  border:1px solid transparent; cursor:pointer;
-  font-weight:600; text-decoration:none; transition:.2s ease;
-}
-
-.btn-primary{
-  background: var(--brand); color:#fff;
-  box-shadow: 0 6px 14px rgba(0,112,243,.25);
-}
-.btn-primary:hover{ background: var(--brand-900) }
-
-.btn-secondary{
-  background:#ffffff; color:var(--text); border-color:var(--border);
-}
-.btn-secondary:hover{ background:#f9fafb }
-
-/* ===== Cards / Shadows ===== */
-.card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-}
-
-.shadow-sm{ box-shadow: 0 6px 16px rgba(2, 28, 71, .08) }
-/* === Swyra FAQ Styles === */
-:root {
-  --brand: #0b6fbf;
-  --brand-600: #0a66b0;
-  --ink: #0b1220;
-  --muted: #475467;
-  --line: #e6e8eb;
-  --card: #ffffff;
-  --ring: rgba(11, 111, 191, 0.25);
-  --shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
-}
-
-.faq-wrap {
-  max-width: 1100px;
-  margin: 72px auto 0;
-  padding: 0 20px;
-}
-
-.badge {
-  display: inline-block;
-  padding: 6px 10px;
-  background: #e9f5ff;
-  color: var(--brand);
-  border-radius: 999px;
-  font-size: 13px;
-  margin-bottom: 8px;
-}
-
-.faq-title {
-  font-size: 32px;
-  line-height: 1.2;
-  color: var(--ink);
-  margin: 0 0 18px 0;
-}
-
-.faq-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.faq-card {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--card);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.faq-card:is(:hover, :focus-within) {
-  border-color: var(--brand);
-  box-shadow: 0 8px 24px rgba(11, 111, 191, 0.12);
-}
-
-.faq-trigger {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  gap: 12px;
-  padding: 16px 18px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.faq-trigger:focus-visible {
-  box-shadow: 0 0 0 3px var(--ring);
-}
-
-.faq-question {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.faq-icon {
-  font-size: 22px;
-  line-height: 1;
-  color: var(--brand);
-  transition: transform 0.2s ease;
-}
-
-.faq-card.is-open .faq-icon {
-  transform: rotate(45deg);
-}
-
-.faq-content {
-  overflow: hidden;
-  transition: max-height 0.25s ease;
-  border-top: 1px solid var(--line);
-}
-
-.faq-answer {
-  padding: 14px 18px 18px;
-  color: var(--muted);
+/* ---------- Reset / Base ---------- */
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+html, body{
+  padding: 0;
   margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+}
+img{ max-width: 100%; display: block; }
+a{ color: var(--primary-700); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* ---------- Layout Utilities ---------- */
+.container{
+  width: min(1200px, 100%);
+  margin-inline: auto;
+  padding-inline: 16px;
 }
 
-/* ---------- Layout & Container ---------- */
-.container {
-  max-width: 1120px;
-  padding: 0 24px;
-  margin: 0 auto;
-}
-
-/* ---------- Header / Navigation ---------- */
-header {
+/* ---------- Header ---------- */
+header{
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(17,24,39,0.02);
 }
 
-.mobile-btn {
-  display: none; /* wird nur mobil sichtbar */
-}
-
-header nav a {
-  white-space: nowrap;
-}
-
-/* ---------- Hero ---------- */
-.hero {
-  background: radial-gradient(1200px 600px at 70% 0, #eef3ff 0%, rgba(234, 243, 255, 0) 55%);
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 24px;
-  padding: 56px 0 20px;
-}
-
-.hero-left h1 {
-  font-size: clamp(28px, 7.2vw, 64px);
-  line-height: 1.05;
-  margin: 0 0 16px;
-}
-
-.hero-left p {
-  font-size: clamp(16px, 2.9vw, 18px);
-  line-height: 1.55;
-  margin: 0 0 18px;
-  color: #334155;
-}
-
-.hero-left .btn-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.hero-left .btn-row .btn {
-  line-height: 1.15;
-}
-
-/* Karte rechts im Hero */
-.hero-card {
-  display: flex;
-  justify-content: center;
-}
-
-.hero-card-inner {
-  width: 100%;
-  max-width: 420px;
-  min-height: 220px;        /* hält das Feld stabil */
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+/* Flex für die Inhalte im Header (Logo links, Nav/Actions rechts) */
+.header-inner{
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-/* ---------- Feature Cards / Grids ---------- */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-/* ---------- CTA Strip ---------- */
-.cta-strip {
-  padding: 36px 0;
-}
-
-.cta-strip .cta-actions {
-  display: flex;
+  justify-content: space-between;
   gap: 12px;
-  justify-content: center;
+  padding: 12px 24px;
 }
 
-/* ---------- Footer ---------- */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 24px;
-}
-
-/* ============ Breakpoints ============ */
-
-/* ≤ 900px: etwas kompakter */
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .hero-card-inner {
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ≤ 640px: Mobile */
-@media (max-width: 640px) {
-  /* Header: Links ausblenden, Burger zeigen */
-  header nav {
-    display: none;
-  }
-  .mobile-btn {
-    display: inline-flex;
-  }
-
-  /* Hero: Buttons untereinander, volle Breite */
-  .hero-left .btn-row {
-    flex-direction: column;
-  }
-  .hero-left .btn-row .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hero-card-inner {
-    max-width: 100%;
-    min-height: 180px;
-    padding: 16px;
-  }
-
-  /* Features: 1 Spalte */
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* CTA: Button vollbreit */
-  .cta-strip .cta-actions {
-    flex-direction: column;
-  }
-  .cta-strip .cta-actions .btn {
-    width: 100%;
-  }
-
-  /* Footer: 1 Spalte */
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-/* ===== Header Responsive ===== */
-.desktop-nav {
+/* Desktop-Navigation (Links „Home/Über/…“) */
+.desktop-nav{
   display: flex;
+  gap: 20px;
+  font-size: 15px;
+}
+.desktop-nav a{
+  color: var(--text);
+  text-decoration: none;
+}
+.desktop-nav a:hover{
+  color: var(--primary-700);
 }
 
-.mobile-auth {
+/* Mobile-Auth (nur „Anmelden“ o.Ä., rechts) – zunächst ausblenden */
+.mobile-auth{
   display: none;
+  align-items: center;
+  gap: 10px;
 }
 
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none; /* Links ausblenden auf Mobile */
-  }
-  .mobile-auth {
-    display: flex; /* "Anmelden" rechts einblenden */
-    align-items: center;
-    gap: 10px;
-  }
-  .search-wrap {
-    padding: 8px 12px; /* Etwas Luft über der Suche mobil */
-  }
+/* Logo/link row helper (optional – falls verwendet) */
+.logo-link{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
 }
 
-/* ===== Buttons (clean & minimal) ===== */
-.btn {
+/* ---------- Such-Leiste/Wrapper ---------- */
+.search-wrap{
+  padding: 12px;
+}
+
+/* ---------- Buttons (clean & minimal) ---------- */
+.btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: .5rem;
   padding: 10px 14px;
   border-radius: 9999px;
-  border: 1px solid #d1d5db;
+  border: 1px solid transparent;
   background: #fff;
-  color: #111827;
-  text-decoration: none;
+  color: var(--text);
   font-weight: 600;
   line-height: 1;
+  cursor: pointer;
+  transition: filter .15s ease, background .15s ease, border-color .15s ease;
+  text-decoration: none;
 }
 
-.btn-primary {
-  background: #0b66ff;
-  border-color: #0b66ff;
+.btn-primary{
+  background: var(--primary);
   color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0 rgba(0,0,0,0);
+}
+.btn-primary:hover{ filter: brightness(0.98); }
+.btn-primary:active{ filter: brightness(0.95); }
+
+.btn-secondary{
+  background: #fff;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-secondary:hover{
+  background: #f9fafb;
+  border-color: #d1d5db;
 }
 
-.btn:hover {
-  filter: brightness(0.98);
+/* Focus-Ring */
+.btn:focus{
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
 }
 
-.btn-primary:hover {
-  filter: brightness(0.95);
+/* ---------- Karten/Sections (Startseite) ---------- */
+.section{
+  padding: 24px 0;
 }
+.card{
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  padding: 24px 0 8px;
+}
+
+/* ========== Responsive ========== */
+
+/* --- Tablet/Down: kleine Polsterungen anpassen --- */
+@media (max-width: 1024px){
+  .header-inner{ padding: 12px 16px; }
+  .search-wrap{ padding: 10px 12px; }
+}
+
+/* --- Mobile: Top-Links ausblenden, nur „Anmelden“ zeigen; Luft über der Suche --- */
+@media (max-width: 768px){
+
+  /* Desktop-Links verstecken */
+  .desktop-nav{ display: none; }
+
+  /* Mobile „Anmelden“ rechts einblenden */
+  .mobile-auth{
+    display: inline-flex;
+  }
+
+  /* Eine kleine Luft über der Suche */
+  .search-wrap{
+    padding: 8px 12px;
+  }
+}
+
+/* --- Sehr klein (Mobile S) --- */
+@media (max-width: 480px){
+  .header-inner{
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .btn{
+    padding: 9px 12px;
+    font-weight: 600;
+  }
+}
+
+/* ---------- Kleine Helfer ---------- */
+.text-muted{ color: var(--muted); }
+.center{ text-align: center; }
+.mt-8{ margin-top: 2rem; }
+.mt-12{ margin-top: 3rem; }
+.m-0{ margin: 0; }
+.p-0{ padding: 0; }
+.rounded-xl{ border-radius: 16px; }
+.shadow-soft{ box-shadow: var(--shadow); }
+.border{ border: 1px solid var(--border); }

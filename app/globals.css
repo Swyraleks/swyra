@@ -328,4 +328,54 @@ header nav a {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+/* ===== Header Responsive ===== */
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-auth {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Links ausblenden auf Mobile */
+  }
+  .mobile-auth {
+    display: flex; /* "Anmelden" rechts einblenden */
+    align-items: center;
+    gap: 10px;
+  }
+  .search-wrap {
+    padding: 8px 12px; /* Etwas Luft über der Suche mobil */
+  }
+}
+
+/* ===== Buttons (clean & minimal) ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: #0b66ff;
+  border-color: #0b66ff;
+  color: #fff;
+}
+
+.btn:hover {
+  filter: brightness(0.98);
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
 }

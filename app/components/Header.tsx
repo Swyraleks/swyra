@@ -1,10 +1,7 @@
-// app/components/Header.tsx
 "use client";
-
-import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import SearchBar from "./SearchBar";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,29 +20,30 @@ export default function Header() {
         zIndex: 100,
       }}
     >
-      <Link
-        href="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          textDecoration: "none",
-        }}
-      >
+      {/* 🟦 Logo (links) */}
+      <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
         <Image
-          src="/swyra-logo-inline.svg"
+          src="/swyra-logo-inline.svg"  // <- dein Logo aus dem public-Ordner
           alt="Swyra"
-          width={220}
-          height={52}
+          width={180}
+          height={44}
           priority
         />
       </Link>
 
-      <nav style={{ display: "flex", gap: 20, fontSize: 15 }}>
+      {/* 🟩 Navigation (nur Desktop sichtbar) */}
+      <nav className="desktop-nav" style={{ display: "flex", gap: 20, fontSize: 15 }}>
         <Link href="/">Home</Link>
         <Link href="/about">Über uns</Link>
         <Link href="/kontakt">Kontakt</Link>
       </nav>
+
+      {/* 🟨 Mobile „Anmelden“-Button */}
+      <div className="mobile-auth">
+        <Link href="/login" className="btn btn-primary" style={{ padding: "10px 14px" }}>
+          Anmelden
+        </Link>
+      </div>
     </header>
   );
 }

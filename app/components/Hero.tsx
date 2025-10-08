@@ -1,59 +1,49 @@
 // app/components/Hero.tsx
-import Image from "next/image";
+"use client";
+
+import SearchBar from "./SearchBar";
 
 export default function Hero() {
   return (
-    <section style={wrap}>
-      <div style={inner}>
-        {/* Zentrale Karte mit Logo */}
-        <div style={card}>
-<div style={{ textAlign: "center", marginTop: 40 }}>
-  <h2>Finde jetzt dein nächstes Angebot</h2>
-</div>
-          {/* Wenn du doch eine kleine Unterzeile möchtest, diese Zeile auskommentieren:
-          <p style={tagline}>Sicher handeln, einfach zahlen.</p>
-          */}
+    <section
+      style={{
+        padding: "60px 24px",
+        textAlign: "center",
+        background: "linear-gradient(to bottom right, #f9fbff, #eef3f9)",
+      }}
+    >
+      {/* Hauptbereich */}
+      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        {/* Titel */}
+        <h1
+          style={{
+            fontSize: "2.4rem",
+            fontWeight: 700,
+            color: "#0f2940",
+            marginBottom: 12,
+          }}
+        >
+          Sicher handeln, einfach zahlen.
+        </h1>
+
+        {/* Untertitel */}
+        <p
+          style={{
+            fontSize: "1.1rem",
+            color: "#55697c",
+            marginBottom: 40,
+            lineHeight: 1.6,
+          }}
+        >
+          Kaufe und verkaufe einfach auf Swyra – mit TWINT, Banküberweisung oder
+          Kryptowährung. Schnell, fair und sicher.
+        </p>
+
+        {/* Suchleiste – zentral im Hero */}
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <SearchBar />
         </div>
       </div>
     </section>
   );
 }
-
-/* ===== Inline-Styles (responsive & zentriert) ===== */
-const wrap: React.CSSProperties = {
-  // sanfter Verlauf wie zuvor
-  background:
-    "radial-gradient(1200px 600px at 70% 0%, #eaf3ff 0%, rgba(234,243,255,0) 55%)",
-};
-
-const inner: React.CSSProperties = {
-  maxWidth: 1120,
-  margin: "0 auto",
-  padding: "72px 20px",      // mobile freundlicher Abstand
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  minHeight: 360,
-};
-
-const card: React.CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  background: "white",
-  borderRadius: 16,
-  padding: "28px 32px",
-  boxShadow: "0 8px 28px rgba(0,0,0,0.08)",
-  width: "100%",
-  maxWidth: 560,            // Karte wird nicht zu breit
-  minHeight: 220,
-};
-
-const tagline: React.CSSProperties = {
-  marginTop: 16,
-  fontSize: "clamp(14px, 2.4vw, 18px)",
-  lineHeight: 1.4,
-  color: "#4b5563",
-  textAlign: "center",
-};

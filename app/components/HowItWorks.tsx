@@ -1,44 +1,44 @@
-// app/components/HowItWorks.tsx
-"use client";
-import React from "react";
-import type { CSSProperties } from "react";
-import { IconRegister, IconListing, IconShieldCheck } from "./icons";
+'use client';
 
-const NAVY = "#0b1a2b";
-const BUBBLE_BG = "#eef6ff";
-const BUBBLE_BORDER = "#d8e7ff";
+import React, { CSSProperties } from 'react';
+import { IconRegister, IconListing, IconShieldCheck } from './icons';
+
+const NAVY = '#0b1a2b';
+const BUBBLE_BG = '#eef6ff';
+const BUBBLE_BORDER = '#d8e2ff';
 
 type Step = { icon: React.ReactNode; title: string; text: string };
 
 const STEPS: Step[] = [
   {
     icon: <IconRegister />,
-    title: "1) Kostenlos registrieren",
+    title: '1) Kostenlos registrieren',
     text:
-      "Erstelle dein Konto in wenigen Sekunden – ganz ohne versteckte Kosten.",
+      'Erstelle dein Konto in wenigen Sekunden – ganz ohne versteckte Kosten.',
   },
   {
     icon: <IconListing />,
-    title: "2) Angebot einstellen",
-    text:
-      "Fotos hochladen, Preis festlegen und veröffentlichen. Fertig!",
+    title: '2) Angebot einstellen',
+    text: 'Fotos hochladen, Preis festlegen und veröffentlichen. Fertig!',
   },
   {
     icon: <IconShieldCheck />,
-    title: "3) Sicher verkaufen & zahlen",
+    title: '3) Sicher verkaufen & zahlen',
     text:
-      "Bezahlung mit TWINT/Banküberweisung & Käuferschutz – fair und unkompliziert.",
+      'Bezahlung mit TWINT/Banküberweisung & Käuferschutz – fair und unkompliziert.',
   },
 ];
 
 export default function HowItWorks() {
   return (
     <section style={wrap}>
-      <style>{`
-        @media (max-width: 860px){
-          .steps-grid{ grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+      <style>
+        {`
+          @media (max-width: 860px) {
+            .steps-grid { grid-template-columns: 1fr !important; }
+          }
+        `}
+      </style>
 
       <div style={container}>
         <span style={eyebrow}>So funktioniert es</span>
@@ -62,26 +62,25 @@ export default function HowItWorks() {
 
 /* ===== Inline Styles ===== */
 const wrap: CSSProperties = {
-  background:
-    "linear-gradient(180deg, #ffffff 0%, #f7fbff 100%)",
-  padding: "56px 0 24px",
-  borderTop: "1px solid #eef4f8",
+  background: 'linear-gradient(180deg, #ffffff 0%, #f7fbff 100%)',
+  padding: '56px 0 24px',
+  borderTop: '1px solid #eef4f8',
 };
 
 const container: CSSProperties = {
   maxWidth: 1120,
-  margin: "0 auto",
-  padding: "0 16px",
+  margin: '0 auto',
+  padding: '0 16px',
 };
 
 const eyebrow: CSSProperties = {
-  display: "inline-block",
+  display: 'inline-block',
   fontSize: 14,
-  color: "#0b6bcb",
-  background: "#e8f3ff",
-  border: "1px solid #d6eaff",
+  color: '#0b6bcb',
+  background: '#e8f3ff',
+  border: '1px solid #d6eaff',
   borderRadius: 999,
-  padding: "6px 12px",
+  padding: '6px 12px',
   marginBottom: 12,
 };
 
@@ -89,37 +88,51 @@ const title: CSSProperties = {
   fontSize: 32,
   lineHeight: 1.25,
   fontWeight: 800,
-  margin: "0 0 24px",
+  margin: '0 0 24px',
   color: NAVY,
 };
 
 const grid: CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)",
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
   gap: 20,
 };
 
 const card: CSSProperties = {
-  background: "#fff",
-  border: "1px solid #e9edf2",
+  background: '#fff',
+  border: '1px solid #e9edf2',
   borderRadius: 16,
   padding: 24,
-  boxShadow: "0 4px 16px rgba(2,36,89,0.06)",
+  boxShadow: '0 4px 16px rgba(2,36,89,0.06)',
 };
 
 const iconBubble: CSSProperties = {
   width: 48,
   height: 48,
-  display: "grid",
-  placeItems: "center",
-  borderRadius: 12,
+  display: 'grid',
+  placeItems: 'center',
   background: BUBBLE_BG,
   border: `1px solid ${BUBBLE_BORDER}`,
+  borderRadius: 12,
   marginBottom: 14,
 };
 
-const iconInner: CSSProperties = { color: NAVY, display: "grid", placeItems: "center" };
+const iconInner: CSSProperties = {
+  color: NAVY,
+  display: 'grid',
+  placeItems: 'center',
+};
 
-const cardTitle: CSSProperties = { fontSize: 20, fontWeight: 800, margin: "8px 0 6px", color: NAVY };
+const cardTitle: CSSProperties = {
+  fontSize: 20,
+  fontWeight: 800,
+  margin: '8px 0 6px',
+  color: NAVY,
+};
 
-const cardText: CSSProperties = { fontSize: 16, lineHeight: 1.55, color: "#455468", margin: 0 };
+const cardText: CSSProperties = {
+  fontSize: 16,
+  lineHeight: 1.55,
+  color: '#455468',
+  margin: 0,
+};

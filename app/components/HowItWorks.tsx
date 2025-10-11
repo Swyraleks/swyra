@@ -1,20 +1,23 @@
 'use client';
 
-import React, { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { IconRegister, IconListing, IconShieldCheck } from './icons';
 
 const NAVY = '#0b1a2b';
 const BUBBLE_BG = '#eef6ff';
 const BUBBLE_BORDER = '#d8e2ff';
 
-type Step = { icon: React.ReactNode; title: string; text: string };
+type Step = {
+  icon: ReactNode;
+  title: string;
+  text: string;
+};
 
 const STEPS: Step[] = [
   {
     icon: <IconRegister />,
     title: '1) Kostenlos registrieren',
-    text:
-      'Erstelle dein Konto in wenigen Sekunden – ganz ohne versteckte Kosten.',
+    text: 'Erstelle dein Konto in wenigen Sekunden – ganz ohne versteckte Kosten.',
   },
   {
     icon: <IconListing />,
@@ -24,8 +27,7 @@ const STEPS: Step[] = [
   {
     icon: <IconShieldCheck />,
     title: '3) Sicher verkaufen & zahlen',
-    text:
-      'Bezahlung mit TWINT/Banküberweisung & Käuferschutz – fair und unkompliziert.',
+    text: 'Bezahlung mit TWINT/Banküberweisung & Käuferschutz – fair und unkompliziert.',
   },
 ];
 
@@ -35,7 +37,9 @@ export default function HowItWorks() {
       <style>
         {`
           @media (max-width: 860px) {
-            .steps-grid { grid-template-columns: 1fr !important; }
+            .steps-grid {
+              grid-template-columns: 1fr !important;
+            }
           }
         `}
       </style>

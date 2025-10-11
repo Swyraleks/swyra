@@ -1,15 +1,14 @@
 'use client';
 
-import React, { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { IconLock, IconBolt, IconCH } from './icons';
 
-/* Farben zentral – identisch zu deinen Screens */
 const NAVY = '#0b1a2b';
 const BUBBLE_BG = '#eef6ff';
 const BUBBLE_BORDER = '#d8e2ff';
 
 type Feature = {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   text: string;
 };
@@ -18,14 +17,12 @@ const FEATURES: Feature[] = [
   {
     icon: <IconLock />,
     title: 'Sicher zahlen',
-    text:
-      'TWINT, Banküberweisung & Krypto mit Käuferschutz-Konzept. Sicherheit an erster Stelle.',
+    text: 'TWINT, Banküberweisung & Krypto mit Käuferschutz-Konzept. Sicherheit an erster Stelle.',
   },
   {
     icon: <IconBolt />,
     title: 'Einfach handeln',
-    text:
-      'In wenigen Klicks kaufen & verkaufen – mobil & am Desktop. Schnell und unkompliziert.',
+    text: 'In wenigen Klicks kaufen & verkaufen – mobil & am Desktop. Schnell und unkompliziert.',
   },
   {
     icon: <IconCH />,
@@ -37,11 +34,13 @@ const FEATURES: Feature[] = [
 export default function Features() {
   return (
     <section style={wrap}>
-      {/* kleines CSS für Mobile-Fallback */}
+      {/* Mobile Grid-Fix */}
       <style>
         {`
           @media (max-width: 860px) {
-            .features-grid { grid-template-columns: 1fr !important; }
+            .features-grid {
+              grid-template-columns: 1fr !important;
+            }
           }
         `}
       </style>

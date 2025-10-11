@@ -4,57 +4,74 @@ import React from "react";
 import type { CSSProperties } from "react";
 import { IconRegister, IconListing, IconShieldCheck } from "./icons";
 
+const NAVY = "#0b1a2b";
+const BUBBLE_BG = "#eef6ff";
+const BUBBLE_BORDER = "#d8e7ff";
+
+type Step = { icon: React.ReactNode; title: string; text: string };
+
+const STEPS: Step[] = [
+  {
+    icon: <IconRegister />,
+    title: "1) Kostenlos registrieren",
+    text:
+      "Erstelle dein Konto in wenigen Sekunden – ganz ohne versteckte Kosten.",
+  },
+  {
+    icon: <IconListing />,
+    title: "2) Angebot einstellen",
+    text:
+      "Fotos hochladen, Preis festlegen und veröffentlichen. Fertig!",
+  },
+  {
+    icon: <IconShieldCheck />,
+    title: "3) Sicher verkaufen & zahlen",
+    text:
+      "Bezahlung mit TWINT/Banküberweisung & Käuferschutz – fair und unkompliziert.",
+  },
+];
+
 export default function HowItWorks() {
   return (
     <section style={wrap}>
+      <style>{`
+        @media (max-width: 860px){
+          .steps-grid{ grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
       <div style={container}>
         <span style={eyebrow}>So funktioniert es</span>
         <h2 style={title}>In 3 einfachen Schritten starten</h2>
 
-        <div style={grid}>
-          {/* 1 */}
-          <div style={card}>
-            <div style={iconBubble}><IconRegister /></div>
-            <h3 style={cardTitle}>1) Kostenlos registrieren</h3>
-            <p style={cardText}>
-              Erstelle dein Konto in wenigen Sekunden – ganz ohne versteckte Kosten.
-            </p>
-          </div>
-
-          {/* 2 */}
-          <div style={card}>
-            <div style={iconBubble}><IconListing /></div>
-            <h3 style={cardTitle}>2) Angebot einstellen</h3>
-            <p style={cardText}>
-              Fotos hochladen, Preis festlegen und veröffentlichen. Fertig!
-            </p>
-          </div>
-
-          {/* 3 */}
-          <div style={card}>
-            <div style={iconBubble}><IconShieldCheck /></div>
-            <h3 style={cardTitle}>3) Sicher verkaufen & zahlen</h3>
-            <p style={cardText}>
-              Bezahlung mit TWINT/Banküberweisung & Käuferschutz – fair und unkompliziert.
-            </p>
-          </div>
+        <div className="steps-grid" style={grid}>
+          {STEPS.map((s, i) => (
+            <article key={i} style={card}>
+              <div style={iconBubble}>
+                <span style={iconInner}>{s.icon}</span>
+              </div>
+              <h3 style={cardTitle}>{s.title}</h3>
+              <p style={cardText}>{s.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* ===== Styles ===== */
-
+/* ===== Inline Styles ===== */
 const wrap: CSSProperties = {
-  background: "linear-gradient(180deg, #ffffff 0%, #f7fbff 100%)",
-  padding: "48px 0",
+  background:
+    "linear-gradient(180deg, #ffffff 0%, #f7fbff 100%)",
+  padding: "56px 0 24px",
   borderTop: "1px solid #eef4f8",
 };
 
 const container: CSSProperties = {
-  width: "min(1120px, 92%)",
+  maxWidth: 1120,
   margin: "0 auto",
+  padding: "0 16px",
 };
 
 const eyebrow: CSSProperties = {
@@ -73,7 +90,7 @@ const title: CSSProperties = {
   lineHeight: 1.25,
   fontWeight: 800,
   margin: "0 0 24px",
-  color: "#081b2b",
+  color: NAVY,
 };
 
 const grid: CSSProperties = {
@@ -85,40 +102,24 @@ const grid: CSSProperties = {
 const card: CSSProperties = {
   background: "#fff",
   border: "1px solid #e9edf2",
-  boxShadow: "0 4px 16px rgba(2,36,89,.06)",
-  borderRadius: 14,
+  borderRadius: 16,
   padding: 24,
+  boxShadow: "0 4px 16px rgba(2,36,89,0.06)",
 };
 
 const iconBubble: CSSProperties = {
-  width: 44,
-  height: 44,
-  borderRadius: 12,
+  width: 48,
+  height: 48,
   display: "grid",
   placeItems: "center",
-  background: "#e7f3ff",
-  border: "1px solid #d8eaff",
-  marginBottom: 12,
+  borderRadius: 12,
+  background: BUBBLE_BG,
+  border: `1px solid ${BUBBLE_BORDER}`,
+  marginBottom: 14,
 };
 
-const cardTitle: CSSProperties = {
-  fontSize: 20,
-  fontWeight: 800,
-  margin: "0 0 6px",
-};
+const iconInner: CSSProperties = { color: NAVY, display: "grid", placeItems: "center" };
 
-const cardText: CSSProperties = {
-  fontSize: 15,
-  color: "#405e61",
-  margin: 0,
-};
+const cardTitle: CSSProperties = { fontSize: 20, fontWeight: 800, margin: "8px 0 6px", color: NAVY };
 
-/* Mobile Fallback */
-if (typeof window !== "undefined") {
-  const mq = window.matchMedia("(max-width: 860px)");
-  const apply = () => {
-    (grid as any).gridTemplateColumns = mq.matches ? "1fr" : "repeat(3, 1fr)";
-  };
-  apply();
-  mq.addEventListener?.("change", apply);
-}
+const cardText: CSSProperties = { fontSize: 16, lineHeight: 1.55, color: "#455468", margin: 0 };

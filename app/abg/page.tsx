@@ -1,8 +1,13 @@
-export default function AGB() {
+import Features from "./components/Features";
+import HowItWorks from "./components/HowItWorks";
+
+export default function Home() {
   return (
-    <main style={{ maxWidth: 900, margin: "40px auto", padding: "0 20px" }}>
-      <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
-      <p>Hier kommen deine AGB.</p>
+    <main>
+      {/* …Hero + Suche… */}
+      <Features />
+      <HowItWorks />
+      {/* …Rest wie Listings/CTA/FAQ… */}
     </main>
   );
 }

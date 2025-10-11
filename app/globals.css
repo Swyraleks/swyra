@@ -331,3 +331,24 @@ html, body {
     padding-inline: 8px;
   }
 }
+/* Basis-Layout der Suchleiste */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Dropdown + Input + Button gleichmäßig */
+.search-wrap select,
+.search-wrap input[type="text"],
+.search-wrap button {
+  height: 44px;
+  border-radius: 22px;
+}
+
+/* Mobil: Input bekommt den größten Anteil */
+@media (max-width: 640px) {
+  .search-wrap select { flex: 0 0 42%; min-width: 140px; }
+  .search-wrap input[type="text"] { flex: 1 1 auto; min-width: 0; }
+  .search-wrap button { flex: 0 0 auto; }
+}

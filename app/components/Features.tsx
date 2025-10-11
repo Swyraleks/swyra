@@ -1,46 +1,76 @@
 // app/components/Features.tsx
 "use client";
 import React from "react";
-import type { CSSProperties, ReactNode } from "react";
-import { IconSecure, IconSimple, IconTrusted } from "./icons";
+import type { CSSProperties } from "react";
+import { IconLock, IconBolt, IconCH } from "./icons";
 
-type Feature = { icon: ReactNode; title: string; text: string };
+const NAVY = "#0b1a2b";
+const BUBBLE_BG = "#eef6ff";
+const BUBBLE_BORDER = "#d8e7ff";
+
+type Feature = {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+};
 
 const FEATURES: Feature[] = [
   {
-    icon: <IconSecure />,
+    icon: <IconLock />,
     title: "Sicher zahlen",
-    text: "TWINT, Banküberweisung & Krypto mit Käuferschutz-Konzept. Sicherheit an erster Stelle.",
+    text:
+      "TWINT, Banküberweisung & Krypto mit Käuferschutz-Konzept. Sicherheit an erster Stelle.",
   },
   {
-    icon: <IconSimple />,
+    icon: <IconBolt />,
     title: "Einfach handeln",
-    text: "In wenigen Klicks kaufen & verkaufen – mobil & am Desktop. Schnell und unkompliziert.",
+    text:
+      "In wenigen Klicks kaufen & verkaufen – mobil & am Desktop. Schnell und unkompliziert.",
   },
   {
-    icon: <IconTrusted />,
+    icon: <IconCH />,
     title: "Lokal & vertrauenswürdig",
-    text: "Kundenfreundlich, fair und zuverlässig – von hier, für dich.",
+    text:
+      "Kundenfreundlich, fair und zuverlässig – von hier, für dich.",
   },
 ];
 
 export default function Features() {
   return (
-    <section style={{ padding: "28px 0 64px" }}>
-      <div className="container" style={grid}>
-        {FEATURES.map((f, i) => (
-          <article key={i} style={card}>
-            <div style={iconBubble}>{f.icon}</div>
-            <h3 style={cardTitle}>{f.title}</h3>
-            <p style={{ marginTop: 8, color: "var(--muted)" }}>{f.text}</p>
-          </article>
-        ))}
+    <section style={wrap}>
+      {/* kleines CSS für Mobile-Gitter */}
+      <style>{`
+        @media (max-width: 860px){
+          .features-grid{ grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
+      <div className="container" style={container}>
+        <div className="features-grid" style={grid}>
+          {FEATURES.map((f, i) => (
+            <article key={i} style={card}>
+              <div style={iconBubble}>
+                <span style={iconInner}>{f.icon}</span>
+              </div>
+              <h3 style={cardTitle}>{f.title}</h3>
+              <p style={cardText}>{f.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-/* ===== Styles ===== */
+/* ===== Inline Styles ===== */
+const wrap: CSSProperties = { padding: "28px 0 64px" };
+
+const container: CSSProperties = {
+  maxWidth: 1120,
+  margin: "0 auto",
+  padding: "0 16px",
+};
+
 const grid: CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
@@ -48,40 +78,40 @@ const grid: CSSProperties = {
 };
 
 const card: CSSProperties = {
-  padding: "22px 22px",
   background: "#fff",
   border: "1px solid #e9edf2",
   borderRadius: 16,
-  boxShadow: "0 4px 16px rgba(2,36,89,.06)",
-  transition: "transform .18s ease, box-shadow .18s ease",
-} as CSSProperties;
-
-// kleiner Trick: Hover via CSS-in-JS
-(Object.assign(card, { [":hover" as any]: undefined }) as any);
+  padding: 24,
+  boxShadow: "0 4px 16px rgba(2,36,89,0.06)",
+};
 
 const iconBubble: CSSProperties = {
   width: 48,
   height: 48,
   display: "grid",
   placeItems: "center",
-  background: "#eff4ff",
-  border: "1px solid #dbe4ff",
   borderRadius: 12,
-  marginBottom: 12,
+  background: BUBBLE_BG,
+  border: `1px solid ${BUBBLE_BORDER}`,
+  marginBottom: 14,
+};
+
+const iconInner: CSSProperties = {
+  color: NAVY,
+  display: "grid",
+  placeItems: "center",
 };
 
 const cardTitle: CSSProperties = {
-  fontSize: 18,
+  fontSize: 22,
   fontWeight: 800,
-  margin: 0,
+  margin: "8px 0 6px",
+  color: NAVY,
 };
 
-/* Mobile (kleine Fallback-Variante ohne CSS-Datei) */
-if (typeof window !== "undefined") {
-  const mq = window.matchMedia("(max-width: 860px)");
-  const apply = () => {
-    (grid as any).gridTemplateColumns = mq.matches ? "1fr" : "repeat(3, 1fr)";
-  };
-  apply();
-  mq.addEventListener?.("change", apply);
-}
+const cardText: CSSProperties = {
+  fontSize: 16,
+  lineHeight: 1.55,
+  color: "#455468",
+  margin: 0,
+};

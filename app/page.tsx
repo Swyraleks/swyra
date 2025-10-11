@@ -1,30 +1,30 @@
 // app/page.tsx
 import Hero from "./components/Hero";
 import Features from "./components/Features";
-import CallToAction from "./components/CallToAction";
-import HowItWorks from "./components/HowItWorks";
-import FAQ from "./components/FAQ"; // 👈 FAQ importiert
 import ListingGrid from "./components/ListingGrid";
+import HowItWorks from "./components/HowItWorks";
+import FAQ from "./components/FAQ";         // <— falls deine Datei „FAQs.tsx“ heißt, dann beide auf FAQs anpassen
+import CallToAction from "./components/CallToAction";
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       {/* Hero-Bereich */}
       <Hero />
 
-      {/* Features-Bereich */}
+      {/* Features */}
       <Features />
 
-{/* Neue Angebots-Sektion */}
-      <ListingGrid /> {/*
-      
+      {/* Neue Angebote */}
+      <ListingGrid />
+
       {/* So funktioniert’s */}
       <HowItWorks />
 
-      {/* FAQ-Bereich */}
+      {/* FAQ */}
       <FAQ />
 
-      {/* Call-To-Action unten */}
+      {/* Call To Action unten */}
       <CallToAction />
     </main>
   );

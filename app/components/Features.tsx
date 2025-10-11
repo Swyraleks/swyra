@@ -1,25 +1,24 @@
 // app/components/Features.tsx
+"use client";
 import React from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { IconSecure, IconSimple, IconTrusted } from "./icons";
 
-type Feature = {
-  icon: string;
-  title: string;
-  text: string;
-};
+type Feature = { icon: ReactNode; title: string; text: string };
 
 const FEATURES: Feature[] = [
   {
-    icon: "🔒",
+    icon: <IconSecure />,
     title: "Sicher zahlen",
     text: "TWINT, Banküberweisung & Krypto mit Käuferschutz-Konzept. Sicherheit an erster Stelle.",
   },
   {
-    icon: "⚡",
+    icon: <IconSimple />,
     title: "Einfach handeln",
     text: "In wenigen Klicks kaufen & verkaufen – mobil & am Desktop. Schnell und unkompliziert.",
   },
   {
-    icon: "CH",
+    icon: <IconTrusted />,
     title: "Lokal & vertrauenswürdig",
     text: "Kundenfreundlich, fair und zuverlässig – von hier, für dich.",
   },
@@ -27,7 +26,7 @@ const FEATURES: Feature[] = [
 
 export default function Features() {
   return (
-    <section style={wrap}>
+    <section style={{ padding: "28px 0 64px" }}>
       <div className="container" style={grid}>
         {FEATURES.map((f, i) => (
           <article key={i} style={card}>
@@ -42,42 +41,47 @@ export default function Features() {
 }
 
 /* ===== Styles ===== */
-
-const wrap: React.CSSProperties = {
-  padding: "28px 0 64px",
-};
-
-const grid: React.CSSProperties = {
+const grid: CSSProperties = {
   display: "grid",
-  // WICHTIG: macht die Karten mobil automatisch 1 Spalte, Tablet 2, Desktop 3 …
-  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+  gridTemplateColumns: "repeat(3, 1fr)",
   gap: 24,
-  alignItems: "stretch",
 };
 
-const card: React.CSSProperties = {
+const card: CSSProperties = {
   padding: "22px 22px",
   background: "#fff",
-  borderRadius: 16,
-  boxShadow: "0 4px 16px rgba(2, 36, 89, 0.06)",
-  transition: "transform .18s ease, box-shadow .18s ease",
   border: "1px solid #e9edf2",
-};
+  borderRadius: 16,
+  boxShadow: "0 4px 16px rgba(2,36,89,.06)",
+  transition: "transform .18s ease, box-shadow .18s ease",
+} as CSSProperties;
 
-const iconBubble: React.CSSProperties = {
+// kleiner Trick: Hover via CSS-in-JS
+(Object.assign(card, { [":hover" as any]: undefined }) as any);
+
+const iconBubble: CSSProperties = {
   width: 48,
   height: 48,
   display: "grid",
   placeItems: "center",
-  background: "#f6faff",
-  border: "1px solid #bdeafe",
+  background: "#eff4ff",
+  border: "1px solid #dbe4ff",
   borderRadius: 12,
-  fontSize: 24,
   marginBottom: 12,
 };
 
-const cardTitle: React.CSSProperties = {
+const cardTitle: CSSProperties = {
   fontSize: 18,
   fontWeight: 800,
   margin: 0,
 };
+
+/* Mobile (kleine Fallback-Variante ohne CSS-Datei) */
+if (typeof window !== "undefined") {
+  const mq = window.matchMedia("(max-width: 860px)");
+  const apply = () => {
+    (grid as any).gridTemplateColumns = mq.matches ? "1fr" : "repeat(3, 1fr)";
+  };
+  apply();
+  mq.addEventListener?.("change", apply);
+}

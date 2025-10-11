@@ -9,6 +9,7 @@ export default function HowItWorks() {
         <h2 style={title}>In 3 einfachen Schritten starten</h2>
 
         <div style={grid}>
+          {/* Schritt 1 */}
           <div style={card}>
             <div style={iconBubble}>📝</div>
             <h3 style={cardTitle}>1) Kostenlos registrieren</h3>
@@ -17,6 +18,7 @@ export default function HowItWorks() {
             </p>
           </div>
 
+          {/* Schritt 2 */}
           <div style={card}>
             <div style={iconBubble}>📸</div>
             <h3 style={cardTitle}>2) Angebot einstellen</h3>
@@ -25,6 +27,7 @@ export default function HowItWorks() {
             </p>
           </div>
 
+          {/* Schritt 3 */}
           <div style={card}>
             <div style={iconBubble}>✅</div>
             <h3 style={cardTitle}>3) Sicher verkaufen & zahlen</h3>
@@ -38,7 +41,7 @@ export default function HowItWorks() {
   );
 }
 
-/* ===== Inline Styles (einfach wie bei deinen anderen Komponenten) ===== */
+/* ===== Styles ===== */
 
 const wrap: React.CSSProperties = {
   background: "linear-gradient(180deg, #ffffff 0%, #f7fbff 100%)",
@@ -67,12 +70,13 @@ const title: React.CSSProperties = {
   lineHeight: 1.25,
   fontWeight: 800,
   margin: "0 0 24px",
-  color: "#081a2b",
+  color: "#081b2b",
 };
 
 const grid: React.CSSProperties = {
   display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)",
+  // WICHTIG: responsive 1–3 Spalten, ohne Überlauf auf iPhone
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
   gap: 20,
 };
 
@@ -87,13 +91,13 @@ const card: React.CSSProperties = {
 const iconBubble: React.CSSProperties = {
   width: 44,
   height: 44,
-  borderRadius: "50%",
   display: "grid",
   placeItems: "center",
-  background: "#e7f3ff",
+  background: "#f6faff",
   border: "1px solid #d8eaff",
-  color: "#0b6bcb",
+  borderRadius: 12,
   fontSize: 22,
+  color: "#0b6bcb",
   marginBottom: 12,
 };
 
@@ -101,7 +105,7 @@ const cardTitle: React.CSSProperties = {
   fontSize: 18,
   fontWeight: 700,
   color: "#0d1b2a",
-  margin: "4px 0 6px",
+  margin: "0 0 6px",
 };
 
 const cardText: React.CSSProperties = {
@@ -109,18 +113,3 @@ const cardText: React.CSSProperties = {
   color: "#405061",
   margin: 0,
 };
-
-/* Optional: kleines „mobile-first“ Fallback per inline media – 
-   wenn du lieber alles inline lässt. */
-if (typeof window !== "undefined") {
-  const mq = window.matchMedia("(max-width: 860px)");
-  const apply = () => {
-    (grid as any).gridTemplateColumns = mq.matches ? "1fr" : "repeat(3, 1fr)";
-  };
-  try {
-    apply();
-    mq.addEventListener?.("change", apply);
-  } catch {
-    // ältere Browser ignorieren
-  }
-}

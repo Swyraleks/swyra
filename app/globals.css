@@ -273,3 +273,61 @@ header{
   .faq { margin: 36px auto; }
   .faq h2 { font-size: 24px; margin-bottom: 12px; }
 }
+/* ==== Mobile overflow fix (sicher & defensiv) ==== */
+
+/* 1) Nie breiter als der Viewport rechnen */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2) Horizontalen Overflow im Zweifelsfall unterbinden */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 3) Container-Padding auf Mobil – verhindert, dass Inhalte „anstoßen“ */
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  /* 4) Einspaltiges Layout für Kartenreihen auf Mobil */
+  /* <- wenn du andere Klassennamen nutzt, ergänze sie hier */
+  .features-grid,
+  .cards-row,
+  .steps-grid,
+  .listing-grid,
+  .how-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* 5) Karten dürfen nicht breiter sein als ihr Eltern-Container */
+  .card,
+  .feature-card,
+  .step-card,
+  .list-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;                /* verhindert, dass lange Wörter das Layout sprengen */
+    margin: 0;                   /* kein zusätzliches Außenmaß auf Mobil */
+    overflow-wrap: anywhere;     /* falls mal sehr lange Worte vorkommen */
+  }
+
+  /* 6) Bilder immer flüssig skalieren */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 7) Suchzeile: nie breiter als der Screen */
+  .search-wrap {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 8px;
+  }
+}
